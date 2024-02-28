@@ -1,7 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from './assets/logo.svg';
+import './assets/App.css';
+import Input from "./components/Input"
+import { useState } from 'react';
 
 function App() {
+  const [text,setText] = useState('');
+  const onChangeHandler =(e)=>{
+    setText(e.target.value)
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +23,8 @@ function App() {
         >
           Learn React
         </a>
+        {text}
+        <Input id="sampleText" value={text} onChangeHandler={onChangeHandler}></Input>
       </header>
     </div>
   );
